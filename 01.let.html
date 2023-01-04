@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+    <style>
+        .item {
+            padding: 30px 50px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+
+    <script>
+        // 声明格式
+        let a;
+        let b, c, d;
+        let e = 100;
+        let f = 123, g = '456';
+
+        // 1. 变量不能重复声明
+        var star = '123';
+        var star = '456';
+        // // let 会报错
+        // let star1 = '123';
+        // let star1 = '456';
+
+        // 2. 块级作用域 全局，函数，eval
+        {
+            let girl = 'girl';
+            var boy = 'boy'
+        }
+        console.log(boy);
+        // // 块级作用域，此处无法调用到上方的girl
+        // console.log(girl);
+
+        // 3. 不存在变量提升(在使用变量前先收集变量)
+        // var 支持变量提升，此处不会报错，而是undefined
+        console.log(song);
+        var song = 'song';
+        // // let则会报错
+        // console.log(song1);
+        // let song1 = 'song1';
+
+        // 4. 不影响作用域链
+        {
+            let school = '尚硅谷';
+            function fn() {
+                console.log(school);
+            }
+        }
+        fn();
+
+        let items = document.getElementsByClassName('item');
+        for (var i = 0; i < items.length; i++) {
+            items[i].onclick = function () {
+                console.log(i);
+                // 触发回调时 i 已经变成了 3，越界了导致无效, 使用 let 可以解决
+                // items[i].style.background = 'pink';
+                this.style.background = 'pink';
+            }
+        }
+        /* 
+            因为首先要执行三次循环为 item 加上点击事件
+            由于 var 没有块级作用域，i 存在于全局，执行完 for 时为 2
+            最后又执行了一次 i++（此时退出循环，但 i 已等于 3）
+        */
+        console.log('全局变量i：', i);
+    </script>
+</body>
+
+</html>

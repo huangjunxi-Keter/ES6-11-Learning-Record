@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简化对象写法</title>
+</head>
+
+<body>
+    <script>
+        // ES6 中允许在大括号里面，直接写入变量和函数，作为对象的属性和方法
+
+        let name = 'Keter';
+        let sayHello = function () {
+            console.log('Hello');
+        }
+        // 旧的写法
+        const school = {
+            name: name,
+            sayHello: sayHello,
+            improve: function () {
+                console.log('test1');
+            }
+        }
+        // ES6新写法
+        const school2 = {
+            name,
+            sayHello,
+            improve() {
+                console.log('test1');
+            }
+        }
+
+        console.log('school', school);
+        console.log('school2', school2);
+    </script>
+</body>
+
+</html>

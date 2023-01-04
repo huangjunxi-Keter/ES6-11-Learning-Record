@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // ES6 允许按照一定模式从【数组】和【对象】中提取值，对变量进行赋值，这被成为【解构赋值】
+
+        // 1. 数组结构
+        const ARR = [1, 2, 3, 4];
+        // 相当于声明了四个变量， 使用 ARR 的【元素】按下标顺序，分别对其赋值
+        let [yi, er, san, si] = ARR;
+        console.log(yi, er, san, si);
+
+        // 2. 对象的结构
+        const person = {
+            name: 'Keter',
+            age: 23,
+            sayHello: function () {
+                console.log('Hello');
+            }
+        }
+        // 接收变量的名称与被结构的对象的属性一样
+        let { age, name, sayHello } = person;
+        console.log(name, age, sayHello);
+        sayHello();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>const</title>
+</head>
+
+<body>
+    <script>
+        // 1. 声明一定要 【赋初始值】
+        // const A;
+
+        // 2. 潜规则：一般常量使用大写（不是语法要求）
+
+        // 3. 常量的值不能修改
+        const TEST = '123';
+        // TEST = '456';
+
+        // 4. 块级作用域
+        {
+            const B = '123';
+        }
+        // console.log(B);
+
+        // 5. 对于【数组】和【对象】元素的修改，不算对常量的修改，不会报错
+        const ARR = ['123', '456'];
+        const OBJ = { name: '123' };
+        ARR[1] = '789';
+        OBJ.name = '456';
+        console.log(ARR, OBJ);
+    </script>
+</body>
+
+</html>
