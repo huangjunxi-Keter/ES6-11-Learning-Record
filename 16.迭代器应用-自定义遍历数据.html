@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器应用-自定义遍历数据</title>
+</head>
+
+<body>
+    <script>
+        const studyClass = {
+            name: '一班',
+            students: [
+                '刘一',
+                '陈二',
+                '张三',
+                '李四',
+                '王五',
+                '赵六',
+                '孙七',
+                '周八',
+                '吴九',
+                '郑十'
+            ],
+            [Symbol.iterator]() {
+                // 索引变量
+                let index = 0;
+                return {
+                    next: () => {
+                        if (index < this.students.length) {
+                            let result = { value: this.students[index], done: false };
+                            index++;
+                            return result;
+                        }
+                        else {
+                            return { value: undefined, done: true };
+                        }
+                    }
+                };
+            }
+        }
+
+        // 遍历对象
+        for (let v of studyClass) {
+            console.log(v);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Symbol 的特点
+        // 1. Symbol 的值是唯一的，用来解决命名冲突的问题
+        // 创建 Symbol
+        let s = Symbol();
+        console.log(s, typeof s);
+        let s2 = Symbol('Keter');
+        let s3 = Symbol('Keter');
+        console.log('s2 === s3', s2 === s3);
+        // Symbol.for 创建
+        let s4 = Symbol.for('Keter');
+        let s5 = Symbol.for('Keter');
+        console.log('s4 === s5', s4 === s5);
+
+        // 2. Symbol 值不能与其他数据进行运算
+        // let result = s + 100;
+        
+        // 3. Symbol 定义的对象属性不能用 for...in 循环遍历，但是可以使用 Reflect。ownKeys 来获取对象的所有键名
+
+        // 到ES6为止的数据类型总结
+        // undefined
+        // string
+        // object
+        // null
+        // number
+        // boolean
+        // symbol
+    </script>
+</body>
+
+</html>

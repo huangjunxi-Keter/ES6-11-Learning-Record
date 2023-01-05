@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数</title>
+</head>
+<body>
+    <script>
+        // 生成器就是一个特殊的函数
+        // 异步编程 之前依赖回调函数，生成器时一个新的解决方案
+        function * sayHello() {
+            // yield 可以当作函数代码的分隔符，调用一次 next 执行一块代码
+            console.log('区块1');
+            yield 'test1';
+            console.log('区块2');
+            yield 'test2';
+            console.log('区块3');
+            yield 'test3';
+            console.log('hello');
+        }
+
+        let  fun = sayHello();
+        // fun 是一个迭代器对象
+        console.log(fun);
+        // 需要调用 next 方法才会执行
+        console.log(fun.next());
+        console.log(fun.next());
+        console.log(fun.next());
+        console.log(fun.next());
+
+        // 遍历
+        for (let v of sayHello()) {
+            console.log(v, '--------------');
+        }
+    </script>
+</body>
+</html>

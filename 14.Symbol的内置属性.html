@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 仅展示部分 详见【.笔记/课件/Symbol内置值】共 11 个
+
+        // Symbol 的内置属性，可以作为【其他对象】的【属性】使用，来【改变】其他对象在【特定情况下的表现】
+
+        //-----------------------------------------------------------------------------
+        class Person {
+            // Symbol.hasInstance 在被 instanceof 使用到时触发，可以控制 instanceof 的值
+            static [Symbol.hasInstance](param) {
+                console.log('我被用来检测类型了');
+                console.log(param);
+                return true;
+            }
+        }
+        let o = { name: 'o' }
+        // instanceof 用于检测构造函数的 prototype 属性是否出现在某个实例对象的原型链上
+        // 某个实例对象 instanceof 某个构造函数
+        console.log(o instanceof Person);
+
+        //-----------------------------------------------------------------------------
+        const arr = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+        console.log(arr.concat(arr2));
+        // Symbol.isConcatSpreadable 是否允许被展开
+        arr2[Symbol.isConcatSpreadable] = false;
+        console.log(arr.concat(arr2));
+    </script>
+</body>
+
+</html>
