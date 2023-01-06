@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数参数</title>
+</head>
+<body>
+    <script>
+        function * fun(arg) {
+            console.log(arg);
+            let yieldResult = yield 111;
+            console.log(yieldResult);
+            let yieldResult2 = yield 222;
+            console.log(yieldResult2);
+            let yieldResult3 = yield 333;
+            console.log(yieldResult3);
+        }
+
+        let iterator = fun('AAA');
+        // next 方法可以传入参数，作为 yield 的返回值
+        console.log(iterator.next());
+        console.log(iterator.next('BBB'));
+        console.log(iterator.next('CCC'));
+        console.log(iterator.next('DDD'));
+    </script>
+</body>
+</html>

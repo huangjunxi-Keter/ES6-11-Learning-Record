@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+
+<body>
+    <script>
+        // 声明一个 Set(集合)
+        let s = new Set();
+        console.log('s:', s, typeof s);
+
+        // Set 的参数通常为【数组】，Set 会给参数自动【去重】
+        let s2 = new Set([123, 456, 789, 123]);
+        console.log('s2:', s2);
+
+        // 元素个数
+        console.log('s2.size:', s2.size);
+
+        // 添加元素
+        s2.add(0);
+        console.log('s2:', s2);
+
+        // 删除元素
+        s2.delete(123);
+        console.log('s2:', s2);
+
+        // 检测
+        console.log("s2.has('456'):", s2.has(456));
+
+        // 可以使用 for...of 遍历
+        for (let v of s2) {
+            console.log(v);
+        }
+
+        // 清空
+        s2.clear();
+        console.log(s2);
+    </script>
+</body>
+
+</html>

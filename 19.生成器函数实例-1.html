@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数实例-1</title>
+</head>
+
+<body>
+    <script>
+        // 异步编程
+        // 1s 后控制台输出 111、2s 后输出 222、3s 后输出 333
+
+        // 回调地狱
+        // setTimeout(() => {
+        //     console.log(111);
+        //     setTimeout(() => {
+        //         console.log('222');
+        //         setTimeout(() => {
+        //             console.log('333');
+        //         }, 3000);
+        //     }, 2000);
+        // }, 1000);
+
+        // 解决回调地狱
+        function fun(time, text) {
+            setTimeout(() => {
+                console.log(text);
+                iterator.next();
+            }, time);
+        }
+        function* gen() {
+            yield fun(1000, 111);
+            yield fun(2000, 222);
+            yield fun(3000, 333);
+        }
+        let iterator = gen();
+        iterator.next();
+    </script>
+</body>
+
+</html>
