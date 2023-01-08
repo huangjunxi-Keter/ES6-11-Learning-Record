@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <script>
+        // 声明 Map
+        let map = new Map();
+
+        // 添加元素
+        map.set('name', '尚硅谷');
+        map.set('change', function () {
+            console.log('xxx发生了改变');
+        })
+        let key = { school: 'Keter' };
+        map.set(key, [1, 2, 3, 4, 5]);
+        console.log(map);
+
+        // 获取元素个数
+        console.log('map.size', map.size);
+
+        // 获取
+        console.log(map.get('change'));
+        console.log(map.get(key));
+
+        // 遍历
+        for (let v of map) {
+            console.log('-----', v);
+        }
+
+        // 删除
+        map.delete('name');
+        console.log(map);
+
+        // 清空
+        map.clear()
+        console.log(map);
+    </script>
+</body>
+
+</html>

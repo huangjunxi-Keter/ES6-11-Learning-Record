@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class的get&set</title>
+</head>
+
+<body>
+    <script>
+        // get 和 set
+        class Phone {
+            constructor() {
+                this._price = 0;
+            }
+
+            get price() {
+                console.log('价格属性被读取了');
+                return this._price;
+            }
+
+            set price(value) {
+                console.log('价格被修改了');
+                this._price = value;
+            }
+        }
+
+        // 实例化对象
+        let s = new Phone();
+        console.log(s);
+        console.log(s.price);
+        s.price = 1;
+        console.log(s.price);
+    </script>
+</body>
+
+</html>

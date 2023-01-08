@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类继承&重写</title>
+</head>
+<body>
+    <script>
+        //#region ES5
+        // 手机
+        function Phone(brand, price) {
+            this.brand = brand;
+            this.price = price;
+        }
+        Phone.prototype.myCall = function () {
+            console.log('我可以打电话');
+        }
+
+        // 智能手机
+        function SmartPhone(brand, price, color, size) {
+            Phone.call(this, brand, price);
+            this.color = color;
+            this.size = size;
+        }
+
+        // 设置子级构造函数的原型
+        SmartPhone.prototype = new Phone;
+        SmartPhone.prototype.constructor = SmartPhone;
+
+        // 声明子类的方法
+        SmartPhone.prototype.photo = function() {
+            console.log('拍照');
+        }
+        SmartPhone.prototype.playGame = function() {
+            console.log('玩游戏');
+        }
+
+        // 实例化
+        const chuizi = new SmartPhone('锤子', 2499, 'black', '5.5inch');
+        console.log(chuizi);
+
+        chuizi.myCall();
+        chuizi.photo();
+        chuizi.playGame();
+        //#endregion
+
+        //#region ES6
+        class Phone2 {
+            constructor(brand, price) {
+                this.brand = brand;
+                this.price = price;
+            }
+            // 父类的成员属性
+            myCall() {
+                console.log('打电话');
+            }
+        }
+
+        class SmartPhone2 extends Phone2 {
+            constructor(brand, price, color, size) {
+                super(brand, price); // 相当于调用父类的constructor方法，类似（Phone.call(this, brand, price);）
+                this.color = color;
+                this.size = size;
+            }
+
+            photo() {
+                console.log('拍照');
+            }
+
+            playGame() {
+                console.log('玩游戏');
+            }
+
+            // 重写
+            myCall() {
+                console.log('我可以打电话，还能视频通话');
+            }
+        }
+
+        const xiaomi = new SmartPhone2('小米', 799, 'black', '4.7inch');
+        console.log(xiaomi);
+
+        xiaomi.myCall();
+        xiaomi.photo();
+        xiaomi.playGame()
+        //#endregion
+    </script>
+</body>
+</html>

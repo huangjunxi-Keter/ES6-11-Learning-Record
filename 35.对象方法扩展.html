@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法扩展</title>
+</head>
+<body>
+    <script>
+        // 1. Object.is 判断两对象是否完全相同
+        console.log('NaN == NaN', NaN == NaN);
+        console.log('Object.is(NaN, NaN))',Object.is(NaN, NaN));
+
+        // 2. Object.assin 合并对象
+        const config1 = { host: 'localhost', prot: 3306, name: 'root', pass: 'root' };
+        const config2 = { name: 'keter', pass: 'keter', test: 'test' };
+        console.log(Object.assign(config1, config2));
+
+        // 3. Object.setPrototypeOf 设置原型对象 Object.getPrototypeOf
+        const school = { name: 'Keter' };
+        const cities = { address: '岳阳' };
+        Object.setPrototypeOf(school, cities);
+        console.log(school);
+        console.log(Object.getPrototypeOf(school));
+    </script>
+</body>
+</html>

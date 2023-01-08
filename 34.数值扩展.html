@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数值扩展</title>
+</head>
+
+<body>
+    <script>
+        // 0. Number.EPSILOW 是 JavaScript 表示的最小精度
+        console.log(`0.1 + 0.2 == 0.3：${0.1 + 0.2 == 0.3}`);
+        console.log(`0.1 + 0.2：${0.1 + 0.2}`);
+        function equal(a, b) {
+            if (Math.abs(a - b) < Number.EPSILON) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        console.log(`0.1 + 0.2 equal 0.3：${equal(0.1 + 0.2, 0.3)}`);
+
+        // 1. 二进制和八进制 | 十六进制
+        let b = 0b1010; // 二进制
+        console.log('二进制 0b1010', b);
+        let o = 0o777; //八进制
+        console.log('八进制 0o777', o);
+        let x = 0xff;
+        console.log('十六进制 0xff', x);
+
+        // 2. Number.isFinite 检测一个数值是否为有限
+        console.log('Number.isFinite(100)', Number.isFinite(100));
+        console.log('Number.isFinite(100 / 0)', Number.isFinite(100 / 0));
+        console.log('Number.isFinite(Infinity)', Number.isFinite(Infinity)); // Infinity 无穷
+
+        // 3. Number.isNaN 检测一个数值是否为NaN
+        console.log('Number.isNaN(123)', Number.isNaN(123));
+
+        // 4. Number.parseInt Number.parseFloat 字符串转整/小数
+        console.log("Number.parseInt('123')", Number.parseInt('123hhh'));
+        console.log("Number.parseFloat('1.1')", Number.parseFloat('1.1hhh'));
+
+        // 5. Number.isInteger() 判断是否为整数
+        console.log('Number.isInteger(5)', Number.isInteger(5));
+
+        // 6. Nath.trunc 去除小数部分
+        console.log("Math.trunc(12.123123)", Math.trunc(12.123123));
+
+        // Math.sign 判断一个数到底是正数还是负数
+        console.log('Math.sign(100)', Math.sign(100));
+        console.log('Math.sign(0)', Math.sign(0));
+        console.log('Math.sign(-100)', Math.sign(-100));
+    </script>
+</body>
+
+</html>
