@@ -18,7 +18,7 @@
         });
         /* 
             then 方法的返回结果是Promise对象
-            对象的状态（PromiseState）由回调函数的【返回值】决定（成功：fulfilled、失败：rejected）
+            对象的状态（PromiseState）由回调函数的【返回值】决定（成功：fulfilled、resolved;失败：rejected）
         */
         const result = p.then(value => {
             console.log('value:', value);

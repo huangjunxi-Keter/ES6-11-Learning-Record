@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async 函数
+        async function fn() {
+            /* 
+                1.如果 async 函数中 return 的【不是一个 promise 对象】
+                    则函数的返回值是一个【成功的 promise 对象】
+            */
+            // return 123
+
+            /* 
+                2.如果 async 函数中 【抛出错误】
+                    则函数的返回值是一个【失败的 promise 对象】
+            */
+            // throw new Error('报错了');
+            
+            /* 
+                2.如果 async 函数中 return 的【是一个 promise 对象】
+                    则直接返回
+            */
+            return new Promise((resolve, reject) => {
+                resolve('成功的数据');
+                // reject('失败的数据');
+            });
+        }
+        console.log(fn());
+
+        // 处理异步
+        fn().then(value => {
+            console.log(value);
+        }, reason => {
+            console.log(reason);
+        });
+    </script>
+</body>
+</html>

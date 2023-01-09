@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+        /* 【1.通用的导入方式】 */
+        // // 引入 m1.js
+        // import * as m1 from './src/js/m1.js';
+        // console.log('m1', m1);
+        // m1.teach();
+        // // 引入 m2.js
+        // import * as m2 from './src/js/m2.js';
+        // console.log('m2', m2);
+        // m2.findJob();
+        // // 引入 m3.js
+        // import * as m3 from './src/js/m3.js';
+        // console.log('m3', m3);
+        // m3.default.change();
+
+        /* 【2.解构赋值形式】 */
+        // import {school, teach} from './src/js/m1.js';
+        // console.log(school);
+        // teach();
+        // import {school as school2, findJob} from './src/js/m2.js';
+        // console.log(school2);
+        // findJob();
+        // import {default as m3} from './src/js/m3.js';
+        // console.log(m3);
+
+        /* 【3.简便形式】针对默认暴露 */
+        // import m3 from './src/js/m3.js';
+        // console.log(m3);
+    </script>
+
+    <script src="./src/js/app.js" type="module"></script>
+</body>
+</html>
