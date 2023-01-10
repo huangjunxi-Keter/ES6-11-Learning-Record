@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* dot . 元字符（除换行符以外的任意单个字符）*/
+        let str = `
+            <ul>
+                <li>
+                    <a>肖申克的救赎</a>
+                    <p>上映时间：1994-09-10</p>
+                </li>
+                <li>
+                    <a>阿甘正传</a>
+                    <p>上映时间：1994-07-06</p>
+                </li>
+            </ul>
+        `;
+        /* 提取标签中的文字 */
+
+        /*  \s 换行【. 无法匹配到换行】 */
+        const oldReg = /<li>\s+<a>(.*?)<\/a>\s+<p>(.*?)<\/p>/;
+        const result = oldReg.exec(str);
+        console.log(result);
+        console.log('-----------------------------------------------');
+        /* dotAll 模式【加上模式修正符 s 后 . 可以匹配任何字符】 */
+        const dotAllReg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/s;
+        const result2 = dotAllReg.exec(str);
+        console.log(result2);
+        console.log('-----------------------------------------------');
+        /* 模式修正符 g 全局匹配 */
+        const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs;
+        let result3;
+        let data = [];
+        while (result3 = reg.exec(str)) {
+            // console.log(result3);
+            data.push({title: result3[1], date: result3[2]})
+        }
+        console.log(data);
+    </script>
+</body>
+
+</html>

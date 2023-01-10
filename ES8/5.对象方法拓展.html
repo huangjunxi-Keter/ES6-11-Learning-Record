@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明对象
+        const school = {
+            name: 'Keter',
+            cities: ['长沙', '岳阳'],
+            xueke: ['前端', 'Java', '.Net']
+        };
+
+        // // 获取对象所有的键
+        // console.log(Object.keys(school));
+
+        // 【1.获取对象所有的值】
+        console.log(Object.values(school));
+
+        // 【2.entries】
+        let data = Object.entries(school);
+        console.log(data);
+        // 方便创建 map
+        const m = new Map(data);
+        console.log(m);
+        console.log(m.get('name'));
+
+        // 【3.getOwnPropertyDescriptors】（获取对象属性的描述对象）
+        console.log(Object.getOwnPropertyDescriptors(school));
+        // 通过属性描述对象创建对象
+        const obj = Object.create(null, {
+            name: {
+                // 设置值
+                value: 'Keter',
+                // 属性特性
+                writable: true, // 是否可写
+                configurable: true, // 是否可删除
+                enumerable: true // 是否可以枚举
+            }
+        });
+        console.log(obj);
+    </script>
+</body>
+</html>

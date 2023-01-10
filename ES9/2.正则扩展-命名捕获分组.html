@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 声明一个字符串
+        let str = '<a href="http://www.bilibili.com">哔哩哔哩</a>';
+
+        // 提取 url 与 标签文本（没有命名捕获分组）
+        const reg = /<a href="(.*)">(.*)<\/a>/;
+        const result = reg.exec(str);
+        console.log(result);
+        console.log('url', result[1]);
+        console.log('text', result[2]);
+
+        // 提取 url 与 标签文本（命名捕获分组）
+        const reg2 = /<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+        const result2 = reg2.exec(str);
+        console.log(result2);
+        console.log('url', result2.groups.url);
+        console.log('text', result2.groups.text);
+    </script>
+</body>
+
+</html>

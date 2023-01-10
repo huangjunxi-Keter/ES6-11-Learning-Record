@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.fromEntries 通过【二维数组】创建对象
+        const result = Object.fromEntries([
+            ['name', 'Keter'],
+            ['xueke', 'Java,C#,前端'],
+        ]);
+        console.log(result);
+
+        // Object.fromEntries 通过【Map】创建对象
+        const m = new Map();
+        m.set('name', 'Keter');
+        const result2 = Object.fromEntries(m);
+        console.log(result2);
+    </script>
+</body>
+
+</html>
