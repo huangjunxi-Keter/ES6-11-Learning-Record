@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 声明两个 promise 对象
+        const p1 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('成功！- 1');
+            }, 1000);
+        });
+        const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('成功！- 2');
+            }, 1000);
+        });
+        const p3 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject('失败！- 3');
+            }, 1000);
+        });
+        const p4 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                reject('失败！- 4');
+            }, 1000);
+        });
+        // allSettled 返回的状态一直是 fulfilled（成功）
+        const result = Promise.allSettled([p1, p2]);
+        console.log(result);
+        const result2 = Promise.allSettled([p1, p3]);
+        console.log(result2);
+        const result3 = Promise.allSettled([p3, p4]);
+        console.log(result3);
+
+        // all 根据参数的结果判断（都要成功）
+        const result4 = Promise.all([p1, p2]);
+        console.log(result4);
+        const result5 = Promise.all([p1, p3]);
+        console.log(result5);
+    </script>
+</body>
+</html>

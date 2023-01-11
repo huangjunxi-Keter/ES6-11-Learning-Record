@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ?. 判断？前的属性是否存在
+        function main(config) {
+            const dbHost = config?.db?.host;
+            console.log(dbHost);
+            console.log('-----------------------------------');
+            const dbHost2 = config.db.host;
+            console.log(dbHost2);
+        }
+        main({
+            // db:{
+            //     host: '192.168.0.1',
+            //     usernmae: 'Keter'
+            // },
+            cache: {
+                host: '127.0.0.1',
+                username: 'admin'
+            }
+        });
+    </script>
+</body>
+</html>

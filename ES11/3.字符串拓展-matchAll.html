@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let str = `
+            <ul>
+                <li>
+                    <a>肖申克的救赎</a>
+                    <p>上映时间：1994-09-10</p>
+                </li>
+                <li>
+                    <a>阿甘正传</a>
+                    <p>上映时间：1994-07-06</p>
+                </li>
+            </ul>
+        `;
+
+        // 声明正则
+        const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/gs
+        // 调用
+        const result = str.matchAll(reg);// result 是一个可迭代对象（带有 next 方法）
+        console.log(result);
+
+        /* 一下两组不能同时执行（相当于调用了4次next，但值只有两个）*/
+        // for (let v of result) {
+        //     console.log(v);
+        // }
+
+        const arr = [...result];
+        console.log(arr);
+    </script>
+</body>
+
+</html>
